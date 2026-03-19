@@ -2,7 +2,7 @@ plugins {
     id 'java'
 }
 
-group = 'ro.mpp2024'
+group = 'ro.transportcompany'
 version = '1.0-SNAPSHOT'
 
 repositories {

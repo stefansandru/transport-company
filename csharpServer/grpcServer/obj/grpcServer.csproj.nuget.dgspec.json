@@ -1,37 +1,36 @@
 {
   "format": 1,
   "restore": {
-    "/Users/stefansandru/Documents/trnsport-company/csharpServer/grpcServer/grpcServer.csproj": {}
+    "/Users/stefansandru/Documents/GitHub/transport-company/csharpServer/grpcServer/grpcServer.csproj": {}
   },
   "projects": {
-    "/Users/stefansandru/Documents/trnsport-company/csharpServer/grpcServer/grpcServer.csproj": {
+    "/Users/stefansandru/Documents/GitHub/transport-company/csharpServer/grpcServer/grpcServer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/stefansandru/Documents/trnsport-company/csharpServer/grpcServer/grpcServer.csproj",
+        "projectUniqueName": "/Users/stefansandru/Documents/GitHub/transport-company/csharpServer/grpcServer/grpcServer.csproj",
         "projectName": "grpcServer",
-        "projectPath": "/Users/stefansandru/Documents/trnsport-company/csharpServer/grpcServer/grpcServer.csproj",
+        "projectPath": "/Users/stefansandru/Documents/GitHub/transport-company/csharpServer/grpcServer/grpcServer.csproj",
         "packagesPath": "/Users/stefansandru/.nuget/packages/",
-        "outputPath": "/Users/stefansandru/Documents/trnsport-company/csharpServer/grpcServer/obj/",
+        "outputPath": "/Users/stefansandru/Documents/GitHub/transport-company/csharpServer/grpcServer/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/stefansandru/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
-          "net9.0"
+          "net8.0"
         ],
         "sources": {
-          "/opt/homebrew/Cellar/dotnet/9.0.4/libexec/library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net9.0": {
-            "targetAlias": "net9.0",
+          "net8.0": {
+            "targetAlias": "net8.0",
             "projectReferences": {
-              "/Users/stefansandru/Documents/trnsport-company/csharpServer/model/model.csproj": {
-                "projectPath": "/Users/stefansandru/Documents/trnsport-company/csharpServer/model/model.csproj"
+              "/Users/stefansandru/Documents/GitHub/transport-company/csharpServer/model/model.csproj": {
+                "projectPath": "/Users/stefansandru/Documents/GitHub/transport-company/csharpServer/model/model.csproj"
               },
-              "/Users/stefansandru/Documents/trnsport-company/csharpServer/persistance/persistance.csproj": {
-                "projectPath": "/Users/stefansandru/Documents/trnsport-company/csharpServer/persistance/persistance.csproj"
+              "/Users/stefansandru/Documents/GitHub/transport-company/csharpServer/persistance/persistance.csproj": {
+                "projectPath": "/Users/stefansandru/Documents/GitHub/transport-company/csharpServer/persistance/persistance.csproj"
               }
             }
           }
@@ -45,12 +44,11 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        },
-        "SdkAnalysisLevel": "9.0.100"
+        }
       },
       "frameworks": {
-        "net9.0": {
-          "targetAlias": "net9.0",
+        "net8.0": {
+          "targetAlias": "net8.0",
           "dependencies": {
             "BCrypt.Net-Next": {
               "target": "Package",
@@ -95,32 +93,31 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/opt/homebrew/Cellar/dotnet/9.0.4/libexec/sdk/9.0.105/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.415/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "/Users/stefansandru/Documents/trnsport-company/csharpServer/model/model.csproj": {
+    "/Users/stefansandru/Documents/GitHub/transport-company/csharpServer/model/model.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/stefansandru/Documents/trnsport-company/csharpServer/model/model.csproj",
+        "projectUniqueName": "/Users/stefansandru/Documents/GitHub/transport-company/csharpServer/model/model.csproj",
         "projectName": "model",
-        "projectPath": "/Users/stefansandru/Documents/trnsport-company/csharpServer/model/model.csproj",
+        "projectPath": "/Users/stefansandru/Documents/GitHub/transport-company/csharpServer/model/model.csproj",
         "packagesPath": "/Users/stefansandru/.nuget/packages/",
-        "outputPath": "/Users/stefansandru/Documents/trnsport-company/csharpServer/model/obj/",
+        "outputPath": "/Users/stefansandru/Documents/GitHub/transport-company/csharpServer/model/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/stefansandru/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
-          "net9.0"
+          "net8.0"
         ],
         "sources": {
-          "/opt/homebrew/Cellar/dotnet/9.0.4/libexec/library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net9.0": {
-            "targetAlias": "net9.0",
+          "net8.0": {
+            "targetAlias": "net8.0",
             "projectReferences": {}
           }
         },
@@ -133,12 +130,11 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        },
-        "SdkAnalysisLevel": "9.0.100"
+        }
       },
       "frameworks": {
-        "net9.0": {
-          "targetAlias": "net9.0",
+        "net8.0": {
+          "targetAlias": "net8.0",
           "dependencies": {
             "Avalonia": {
               "target": "Package",
@@ -219,35 +215,34 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/opt/homebrew/Cellar/dotnet/9.0.4/libexec/sdk/9.0.105/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.415/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "/Users/stefansandru/Documents/trnsport-company/csharpServer/persistance/persistance.csproj": {
+    "/Users/stefansandru/Documents/GitHub/transport-company/csharpServer/persistance/persistance.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/stefansandru/Documents/trnsport-company/csharpServer/persistance/persistance.csproj",
+        "projectUniqueName": "/Users/stefansandru/Documents/GitHub/transport-company/csharpServer/persistance/persistance.csproj",
         "projectName": "persistance",
-        "projectPath": "/Users/stefansandru/Documents/trnsport-company/csharpServer/persistance/persistance.csproj",
+        "projectPath": "/Users/stefansandru/Documents/GitHub/transport-company/csharpServer/persistance/persistance.csproj",
         "packagesPath": "/Users/stefansandru/.nuget/packages/",
-        "outputPath": "/Users/stefansandru/Documents/trnsport-company/csharpServer/persistance/obj/",
+        "outputPath": "/Users/stefansandru/Documents/GitHub/transport-company/csharpServer/persistance/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/stefansandru/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
-          "net9.0"
+          "net8.0"
         ],
         "sources": {
-          "/opt/homebrew/Cellar/dotnet/9.0.4/libexec/library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net9.0": {
-            "targetAlias": "net9.0",
+          "net8.0": {
+            "targetAlias": "net8.0",
             "projectReferences": {
-              "/Users/stefansandru/Documents/trnsport-company/csharpServer/model/model.csproj": {
-                "projectPath": "/Users/stefansandru/Documents/trnsport-company/csharpServer/model/model.csproj"
+              "/Users/stefansandru/Documents/GitHub/transport-company/csharpServer/model/model.csproj": {
+                "projectPath": "/Users/stefansandru/Documents/GitHub/transport-company/csharpServer/model/model.csproj"
               }
             }
           }
@@ -261,12 +256,11 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        },
-        "SdkAnalysisLevel": "9.0.100"
+        }
       },
       "frameworks": {
-        "net9.0": {
-          "targetAlias": "net9.0",
+        "net8.0": {
+          "targetAlias": "net8.0",
           "dependencies": {
             "Avalonia": {
               "target": "Package",
@@ -347,7 +341,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/opt/homebrew/Cellar/dotnet/9.0.4/libexec/sdk/9.0.105/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.415/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

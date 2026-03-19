@@ -1,13 +1,13 @@
-package ro.mpp2024;
+package ro.transportcompany;
 
-public class Client extends Entity<Integer> {
+public class Destination extends Entity<Integer> {
     private String name;
 
-    public Client() {
+    public Destination() {
         super();
     }
 
-    public Client(Integer id, String name) {
+    public Destination(Integer id, String name) {
         super(id);
         this.name = name;
     }
@@ -22,9 +22,6 @@ public class Client extends Entity<Integer> {
 
     @Override
     public String toString() {
-        return "Client{" +
-                "id=" + getId() +
-                ", name='" + name + '\'' +
-                '}';
+        return name;
     }
 }

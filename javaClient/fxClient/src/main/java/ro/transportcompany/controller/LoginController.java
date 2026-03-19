@@ -1,4 +1,4 @@
-package ro.mpp2024.controller;
+package ro.transportcompany.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -10,10 +10,10 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import ro.mpp2024.Employee;
-import ro.mpp2024.IServices;
-import ro.mpp2024.ServicesException;
-import ro.mpp2024.utils.AlertFactory;
+import ro.transportcompany.Employee;
+import ro.transportcompany.IServices;
+import ro.transportcompany.ServicesException;
+import ro.transportcompany.utils.AlertFactory;
 
 public class LoginController {
     private IServices server;

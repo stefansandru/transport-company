@@ -17,8 +17,6 @@ public class EmployeeRepository : AbstractRepository<int, Employee>, IEmployeeRe
 
     public override Employee? FindById(int id)
     {
-        logger.LogInformation("Find Employee by ID: {Id}", id);
-
         if (id == 0)
         {
             throw new ArgumentException("ID must not be zero", nameof(id));
@@ -57,8 +55,6 @@ public class EmployeeRepository : AbstractRepository<int, Employee>, IEmployeeRe
 
     public override IEnumerable<Employee> FindAll()
     {
-        logger.LogInformation("Find all Employees");
-
         var employees = new List<Employee>();
         const string query = "SELECT * FROM Employee";
 
@@ -94,8 +90,6 @@ public class EmployeeRepository : AbstractRepository<int, Employee>, IEmployeeRe
 
     public override Employee? Save(Employee employee)
     {
-        logger.LogInformation("Save Employee: {Employee}", employee);
-
         if (employee == null)
         {
             throw new ArgumentNullException(nameof(employee));
@@ -134,8 +128,6 @@ public class EmployeeRepository : AbstractRepository<int, Employee>, IEmployeeRe
 
     public override Employee? Delete(int id)
     {
-        logger.LogInformation("Delete Employee with ID: {Id}", id);
-
         var employeeToDelete = FindById(id);
         if (employeeToDelete == null)
         {
@@ -168,8 +160,6 @@ public class EmployeeRepository : AbstractRepository<int, Employee>, IEmployeeRe
 
     public override Employee? Update(Employee employee)
     {
-        logger.LogInformation("Update Employee: {Employee}", employee);
-
         if (employee == null)
         {
             throw new ArgumentNullException(nameof(employee));
@@ -204,8 +194,6 @@ public class EmployeeRepository : AbstractRepository<int, Employee>, IEmployeeRe
 
     public Employee? FindByUsername(string username)
     {
-        logger.LogInformation("Find Employee by username ");
-
         const string query = "SELECT * FROM Employee WHERE username = @username";
         try
         {

@@ -1,9 +1,9 @@
-package ro.mpp2024;
+package ro.transportcompany;
 
 import io.grpc.ManagedChannel;
 import io.grpc.stub.StreamObserver;
-import ro.mpp2024.proto.*;
-import ro.mpp2024.utils.DTOUtils;
+import ro.transportcompany.proto.*;
+import ro.transportcompany.utils.DTOUtils;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -21,15 +21,15 @@ public class GrpcServicesProxy implements IServices {
      * The proxy hides wire-level details from the JavaFX controllers and converts between
      * DTOs and plain domain objects.
      */
-    private final ManagedChannel channel;                                   // reţinem canalul
+    private final ManagedChannel channel;
     private final TransportCompanyGrpc.TransportCompanyBlockingStub grpcStub;
     private final TransportCompanyGrpc.TransportCompanyStub asyncStub;
 
-    private StreamObserver<NotifySeatsReservedReply> notifyStream;          // pentru logout
+    private StreamObserver<NotifySeatsReservedReply> notifyStream;
 
     public GrpcServicesProxy(TransportCompanyGrpc.TransportCompanyBlockingStub grpcStub) {
         this.grpcStub = grpcStub;
-        this.channel   = (io.grpc.ManagedChannel) grpcStub.getChannel(); // cast sigur cu Netty
+        this.channel   = (io.grpc.ManagedChannel) grpcStub.getChannel();
         this.asyncStub = TransportCompanyGrpc.newStub(channel);
     }
 
@@ -54,7 +54,7 @@ public class GrpcServicesProxy implements IServices {
             throw new ServicesException("Login failed");
         }
 
-        subscribeToUpdates(reply.getEmployeeId(), client);   // o singură dată
+        subscribeToUpdates(reply.getEmployeeId(), client);
 
         return new Employee(reply.getEmployeeId(),
                             reply.getUsername(),
@@ -70,10 +70,10 @@ public class GrpcServicesProxy implements IServices {
                                          .build());
         } finally {
             if (notifyStream != null) {
-                notifyStream.onCompleted();    // opreşte fluxul
+                notifyStream.onCompleted();
                 notifyStream = null;
             }
-            channel.shutdownNow();             // eliberează resursele
+            channel.shutdownNow();
         }
     }
 
@@ -167,20 +167,17 @@ public class GrpcServicesProxy implements IServices {
                 .setEmployeeId(employeeId)
                 .build();
 
-        // Create the stream observer and save it
         notifyStream = new StreamObserver<NotifySeatsReservedReply>() {
             @Override
             public void onNext(NotifySeatsReservedReply value) {
                 try {
                     observer.seatsReserved();
                 } catch (ServicesException e) {
-                    // Log error if needed
                 }
             }
             @Override public void onError(Throwable t)  { /* Log error if needed */ }
             @Override public void onCompleted()         { }
         };
 
-        // Send the request; method is void
         asyncStub.notifySeatsReserved(request, notifyStream);
     }}

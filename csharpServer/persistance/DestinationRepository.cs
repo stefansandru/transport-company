@@ -14,8 +14,6 @@ public class DestinationRepository : AbstractRepository<int, Destination>, IDest
 
     public override Destination? FindById(int id)
     {
-        logger.LogInformation("Find Destination by ID: {Id}", id);
-
         const string query = "SELECT * FROM Destination WHERE id = @id";
         try
         {
@@ -45,8 +43,6 @@ public class DestinationRepository : AbstractRepository<int, Destination>, IDest
 
     public IEnumerable<Destination> FindByName(string name)
     {
-        logger.LogInformation("Find Destination by name: {Name}", name);
-
         if (string.IsNullOrEmpty(name))
             throw new ArgumentException("Name must not be null or empty", nameof(name));
 
@@ -82,8 +78,6 @@ public class DestinationRepository : AbstractRepository<int, Destination>, IDest
 
     public override IEnumerable<Destination> FindAll()
     {
-        logger.LogInformation("Find all Destinations");
-
         var destinations = new List<Destination>();
         const string query = "SELECT * FROM Destination";
 
@@ -115,8 +109,6 @@ public class DestinationRepository : AbstractRepository<int, Destination>, IDest
 
     public override Destination? Save(Destination destination)
     {
-        logger.LogInformation("Save Destination: {Destination}", destination);
-
         if (destination == null)
             throw new ArgumentNullException(nameof(destination));
 
@@ -151,8 +143,6 @@ public class DestinationRepository : AbstractRepository<int, Destination>, IDest
 
     public override Destination? Delete(int id)
     {
-        logger.LogInformation("Delete Destination with ID: {Id}", id);
-
         var destinationToDelete = FindById(id);
         if (destinationToDelete == null)
         {
@@ -185,8 +175,6 @@ public class DestinationRepository : AbstractRepository<int, Destination>, IDest
 
     public override Destination? Update(Destination destination)
     {
-        logger.LogInformation("Update Destination: {Destination}", destination);
-
         if (destination == null)
             throw new ArgumentNullException(nameof(destination));
 

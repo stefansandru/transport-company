@@ -2,9 +2,6 @@ namespace model;
 
 using System;
 
-/// <summary>
-/// Join entity that links a <see cref="Trip"/>, <see cref="Client"/> and seat number.
-/// </summary>
 public class ReservedSeat : Entity<int>
 {
     public Trip Trip { get; set; }

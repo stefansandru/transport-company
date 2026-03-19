@@ -1,7 +1,7 @@
 {
   "version": 3,
   "targets": {
-    "net9.0": {
+    "net8.0": {
       "Avalonia/11.3.0": {
         "type": "package",
         "dependencies": {
@@ -276,10 +276,10 @@
           "Grpc.Tools": "2.71.0"
         },
         "compile": {
-          "lib/net9.0/_._": {}
+          "lib/net8.0/_._": {}
         },
         "runtime": {
-          "lib/net9.0/_._": {}
+          "lib/net8.0/_._": {}
         }
       },
       "Grpc.AspNetCore.Server/2.71.0": {
@@ -288,12 +288,12 @@
           "Grpc.Net.Common": "2.71.0"
         },
         "compile": {
-          "lib/net9.0/Grpc.AspNetCore.Server.dll": {
+          "lib/net8.0/Grpc.AspNetCore.Server.dll": {
             "related": ".pdb;.xml"
           }
         },
         "runtime": {
-          "lib/net9.0/Grpc.AspNetCore.Server.dll": {
+          "lib/net8.0/Grpc.AspNetCore.Server.dll": {
             "related": ".pdb;.xml"
           }
         },
@@ -308,12 +308,12 @@
           "Grpc.Net.ClientFactory": "2.71.0"
         },
         "compile": {
-          "lib/net9.0/Grpc.AspNetCore.Server.ClientFactory.dll": {
+          "lib/net8.0/Grpc.AspNetCore.Server.ClientFactory.dll": {
             "related": ".pdb;.xml"
           }
         },
         "runtime": {
-          "lib/net9.0/Grpc.AspNetCore.Server.ClientFactory.dll": {
+          "lib/net8.0/Grpc.AspNetCore.Server.ClientFactory.dll": {
             "related": ".pdb;.xml"
           }
         },
@@ -551,12 +551,12 @@
           "Microsoft.Extensions.Primitives": "10.0.0-preview.3.25171.5"
         },
         "compile": {
-          "lib/net9.0/Microsoft.Extensions.Configuration.dll": {
+          "lib/net8.0/Microsoft.Extensions.Configuration.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/net9.0/Microsoft.Extensions.Configuration.dll": {
+          "lib/net8.0/Microsoft.Extensions.Configuration.dll": {
             "related": ".xml"
           }
         },
@@ -570,12 +570,12 @@
           "Microsoft.Extensions.Primitives": "10.0.0-preview.3.25171.5"
         },
         "compile": {
-          "lib/net9.0/Microsoft.Extensions.Configuration.Abstractions.dll": {
+          "lib/net8.0/Microsoft.Extensions.Configuration.Abstractions.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/net9.0/Microsoft.Extensions.Configuration.Abstractions.dll": {
+          "lib/net8.0/Microsoft.Extensions.Configuration.Abstractions.dll": {
             "related": ".xml"
           }
         },
@@ -589,12 +589,12 @@
           "Microsoft.Extensions.Configuration.Abstractions": "10.0.0-preview.3.25171.5"
         },
         "compile": {
-          "lib/net9.0/Microsoft.Extensions.Configuration.Binder.dll": {
+          "lib/net8.0/Microsoft.Extensions.Configuration.Binder.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/net9.0/Microsoft.Extensions.Configuration.Binder.dll": {
+          "lib/net8.0/Microsoft.Extensions.Configuration.Binder.dll": {
             "related": ".xml"
           }
         },
@@ -612,12 +612,12 @@
           "Microsoft.Extensions.Primitives": "10.0.0-preview.3.25171.5"
         },
         "compile": {
-          "lib/net9.0/Microsoft.Extensions.Configuration.FileExtensions.dll": {
+          "lib/net8.0/Microsoft.Extensions.Configuration.FileExtensions.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/net9.0/Microsoft.Extensions.Configuration.FileExtensions.dll": {
+          "lib/net8.0/Microsoft.Extensions.Configuration.FileExtensions.dll": {
             "related": ".xml"
           }
         },
@@ -635,12 +635,12 @@
           "System.Text.Json": "10.0.0-preview.3.25171.5"
         },
         "compile": {
-          "lib/net9.0/Microsoft.Extensions.Configuration.Json.dll": {
+          "lib/net8.0/Microsoft.Extensions.Configuration.Json.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/net9.0/Microsoft.Extensions.Configuration.Json.dll": {
+          "lib/net8.0/Microsoft.Extensions.Configuration.Json.dll": {
             "related": ".xml"
           }
         },
@@ -654,12 +654,12 @@
           "Microsoft.Extensions.DependencyInjection.Abstractions": "10.0.0-preview.3.25171.5"
         },
         "compile": {
-          "lib/net9.0/Microsoft.Extensions.DependencyInjection.dll": {
+          "lib/net8.0/Microsoft.Extensions.DependencyInjection.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/net9.0/Microsoft.Extensions.DependencyInjection.dll": {
+          "lib/net8.0/Microsoft.Extensions.DependencyInjection.dll": {
             "related": ".xml"
           }
         },
@@ -670,12 +670,12 @@
       "Microsoft.Extensions.DependencyInjection.Abstractions/10.0.0-preview.3.25171.5": {
         "type": "package",
         "compile": {
-          "lib/net9.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {
+          "lib/net8.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/net9.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {
+          "lib/net8.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {
             "related": ".xml"
           }
         },
@@ -685,13 +685,17 @@
       },
       "Microsoft.Extensions.DependencyModel/9.0.0": {
         "type": "package",
+        "dependencies": {
+          "System.Text.Encodings.Web": "9.0.0",
+          "System.Text.Json": "9.0.0"
+        },
         "compile": {
-          "lib/net9.0/Microsoft.Extensions.DependencyModel.dll": {
+          "lib/net8.0/Microsoft.Extensions.DependencyModel.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/net9.0/Microsoft.Extensions.DependencyModel.dll": {
+          "lib/net8.0/Microsoft.Extensions.DependencyModel.dll": {
             "related": ".xml"
           }
         },
@@ -703,15 +707,16 @@
         "type": "package",
         "dependencies": {
           "Microsoft.Extensions.DependencyInjection.Abstractions": "9.0.0",
-          "Microsoft.Extensions.Options": "9.0.0"
+          "Microsoft.Extensions.Options": "9.0.0",
+          "System.Diagnostics.DiagnosticSource": "9.0.0"
         },
         "compile": {
-          "lib/net9.0/Microsoft.Extensions.Diagnostics.Abstractions.dll": {
+          "lib/net8.0/Microsoft.Extensions.Diagnostics.Abstractions.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/net9.0/Microsoft.Extensions.Diagnostics.Abstractions.dll": {
+          "lib/net8.0/Microsoft.Extensions.Diagnostics.Abstractions.dll": {
             "related": ".xml"
           }
         },
@@ -725,12 +730,12 @@
           "Microsoft.Extensions.Primitives": "10.0.0-preview.3.25171.5"
         },
         "compile": {
-          "lib/net9.0/Microsoft.Extensions.FileProviders.Abstractions.dll": {
+          "lib/net8.0/Microsoft.Extensions.FileProviders.Abstractions.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/net9.0/Microsoft.Extensions.FileProviders.Abstractions.dll": {
+          "lib/net8.0/Microsoft.Extensions.FileProviders.Abstractions.dll": {
             "related": ".xml"
           }
         },
@@ -746,12 +751,12 @@
           "Microsoft.Extensions.Primitives": "10.0.0-preview.3.25171.5"
         },
         "compile": {
-          "lib/net9.0/Microsoft.Extensions.FileProviders.Physical.dll": {
+          "lib/net8.0/Microsoft.Extensions.FileProviders.Physical.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/net9.0/Microsoft.Extensions.FileProviders.Physical.dll": {
+          "lib/net8.0/Microsoft.Extensions.FileProviders.Physical.dll": {
             "related": ".xml"
           }
         },
@@ -762,12 +767,12 @@
       "Microsoft.Extensions.FileSystemGlobbing/10.0.0-preview.3.25171.5": {
         "type": "package",
         "compile": {
-          "lib/net9.0/Microsoft.Extensions.FileSystemGlobbing.dll": {
+          "lib/net8.0/Microsoft.Extensions.FileSystemGlobbing.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/net9.0/Microsoft.Extensions.FileSystemGlobbing.dll": {
+          "lib/net8.0/Microsoft.Extensions.FileSystemGlobbing.dll": {
             "related": ".xml"
           }
         },
@@ -785,12 +790,12 @@
           "Microsoft.Extensions.Logging.Abstractions": "9.0.0"
         },
         "compile": {
-          "lib/net9.0/Microsoft.Extensions.Hosting.Abstractions.dll": {
+          "lib/net8.0/Microsoft.Extensions.Hosting.Abstractions.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/net9.0/Microsoft.Extensions.Hosting.Abstractions.dll": {
+          "lib/net8.0/Microsoft.Extensions.Hosting.Abstractions.dll": {
             "related": ".xml"
           }
         },
@@ -825,12 +830,12 @@
           "Microsoft.Extensions.Options": "10.0.0-preview.3.25171.5"
         },
         "compile": {
-          "lib/net9.0/Microsoft.Extensions.Logging.dll": {
+          "lib/net8.0/Microsoft.Extensions.Logging.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/net9.0/Microsoft.Extensions.Logging.dll": {
+          "lib/net8.0/Microsoft.Extensions.Logging.dll": {
             "related": ".xml"
           }
         },
@@ -845,12 +850,12 @@
           "System.Diagnostics.DiagnosticSource": "10.0.0-preview.3.25171.5"
         },
         "compile": {
-          "lib/net9.0/Microsoft.Extensions.Logging.Abstractions.dll": {
+          "lib/net8.0/Microsoft.Extensions.Logging.Abstractions.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/net9.0/Microsoft.Extensions.Logging.Abstractions.dll": {
+          "lib/net8.0/Microsoft.Extensions.Logging.Abstractions.dll": {
             "related": ".xml"
           }
         },
@@ -871,12 +876,12 @@
           "Microsoft.Extensions.Options.ConfigurationExtensions": "10.0.0-preview.3.25171.5"
         },
         "compile": {
-          "lib/net9.0/Microsoft.Extensions.Logging.Configuration.dll": {
+          "lib/net8.0/Microsoft.Extensions.Logging.Configuration.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/net9.0/Microsoft.Extensions.Logging.Configuration.dll": {
+          "lib/net8.0/Microsoft.Extensions.Logging.Configuration.dll": {
             "related": ".xml"
           }
         },
@@ -895,12 +900,12 @@
           "System.Text.Json": "10.0.0-preview.3.25171.5"
         },
         "compile": {
-          "lib/net9.0/Microsoft.Extensions.Logging.Console.dll": {
+          "lib/net8.0/Microsoft.Extensions.Logging.Console.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/net9.0/Microsoft.Extensions.Logging.Console.dll": {
+          "lib/net8.0/Microsoft.Extensions.Logging.Console.dll": {
             "related": ".xml"
           }
         },
@@ -915,12 +920,12 @@
           "Microsoft.Extensions.Primitives": "10.0.0-preview.3.25171.5"
         },
         "compile": {
-          "lib/net9.0/Microsoft.Extensions.Options.dll": {
+          "lib/net8.0/Microsoft.Extensions.Options.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/net9.0/Microsoft.Extensions.Options.dll": {
+          "lib/net8.0/Microsoft.Extensions.Options.dll": {
             "related": ".xml"
           }
         },
@@ -938,12 +943,12 @@
           "Microsoft.Extensions.Primitives": "10.0.0-preview.3.25171.5"
         },
         "compile": {
-          "lib/net9.0/Microsoft.Extensions.Options.ConfigurationExtensions.dll": {
+          "lib/net8.0/Microsoft.Extensions.Options.ConfigurationExtensions.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/net9.0/Microsoft.Extensions.Options.ConfigurationExtensions.dll": {
+          "lib/net8.0/Microsoft.Extensions.Options.ConfigurationExtensions.dll": {
             "related": ".xml"
           }
         },
@@ -954,12 +959,12 @@
       "Microsoft.Extensions.Primitives/10.0.0-preview.3.25171.5": {
         "type": "package",
         "compile": {
-          "lib/net9.0/Microsoft.Extensions.Primitives.dll": {
+          "lib/net8.0/Microsoft.Extensions.Primitives.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/net9.0/Microsoft.Extensions.Primitives.dll": {
+          "lib/net8.0/Microsoft.Extensions.Primitives.dll": {
             "related": ".xml"
           }
         },
@@ -992,12 +997,12 @@
       "Serilog/4.2.0": {
         "type": "package",
         "compile": {
-          "lib/net9.0/Serilog.dll": {
+          "lib/net8.0/Serilog.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/net9.0/Serilog.dll": {
+          "lib/net8.0/Serilog.dll": {
             "related": ".xml"
           }
         }
@@ -1014,12 +1019,12 @@
           "Serilog.Sinks.File": "6.0.0"
         },
         "compile": {
-          "lib/net9.0/Serilog.AspNetCore.dll": {
+          "lib/net8.0/Serilog.AspNetCore.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/net9.0/Serilog.AspNetCore.dll": {
+          "lib/net8.0/Serilog.AspNetCore.dll": {
             "related": ".xml"
           }
         },
@@ -1037,12 +1042,12 @@
           "Serilog.Extensions.Logging": "9.0.0"
         },
         "compile": {
-          "lib/net9.0/Serilog.Extensions.Hosting.dll": {
+          "lib/net8.0/Serilog.Extensions.Hosting.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/net9.0/Serilog.Extensions.Hosting.dll": {
+          "lib/net8.0/Serilog.Extensions.Hosting.dll": {
             "related": ".xml"
           }
         }
@@ -1054,12 +1059,12 @@
           "Serilog": "4.2.0"
         },
         "compile": {
-          "lib/net9.0/Serilog.Extensions.Logging.dll": {
+          "lib/net8.0/Serilog.Extensions.Logging.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/net9.0/Serilog.Extensions.Logging.dll": {
+          "lib/net8.0/Serilog.Extensions.Logging.dll": {
             "related": ".xml"
           }
         }
@@ -1088,12 +1093,12 @@
           "Serilog": "4.2.0"
         },
         "compile": {
-          "lib/net9.0/Serilog.Settings.Configuration.dll": {
+          "lib/net8.0/Serilog.Settings.Configuration.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/net9.0/Serilog.Settings.Configuration.dll": {
+          "lib/net8.0/Serilog.Settings.Configuration.dll": {
             "related": ".xml"
           }
         }
@@ -1136,12 +1141,12 @@
           "Serilog": "4.2.0"
         },
         "compile": {
-          "lib/net9.0/Serilog.Sinks.File.dll": {
+          "lib/net8.0/Serilog.Sinks.File.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/net9.0/Serilog.Sinks.File.dll": {
+          "lib/net8.0/Serilog.Sinks.File.dll": {
             "related": ".xml"
           }
         }
@@ -1278,10 +1283,10 @@
           "lib/netstandard2.0/_._": {}
         },
         "build": {
-          "buildTransitive/net9.0/SQLitePCLRaw.lib.e_sqlite3.targets": {}
+          "buildTransitive/net8.0/SQLitePCLRaw.lib.e_sqlite3.targets": {}
         },
         "runtimeTargets": {
-          "runtimes/browser-wasm/nativeassets/net9.0/e_sqlite3.a": {
+          "runtimes/browser-wasm/nativeassets/net8.0/e_sqlite3.a": {
             "assetType": "native",
             "rid": "browser-wasm"
           },
@@ -1397,12 +1402,12 @@
       "System.Diagnostics.DiagnosticSource/10.0.0-preview.3.25171.5": {
         "type": "package",
         "compile": {
-          "lib/net9.0/System.Diagnostics.DiagnosticSource.dll": {
+          "lib/net8.0/System.Diagnostics.DiagnosticSource.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/net9.0/System.Diagnostics.DiagnosticSource.dll": {
+          "lib/net8.0/System.Diagnostics.DiagnosticSource.dll": {
             "related": ".xml"
           }
         },
@@ -1413,12 +1418,12 @@
       "System.IO.Pipelines/10.0.0-preview.3.25171.5": {
         "type": "package",
         "compile": {
-          "lib/net9.0/System.IO.Pipelines.dll": {
+          "lib/net8.0/System.IO.Pipelines.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/net9.0/System.IO.Pipelines.dll": {
+          "lib/net8.0/System.IO.Pipelines.dll": {
             "related": ".xml"
           }
         },
@@ -1514,12 +1519,12 @@
       "System.Text.Encodings.Web/10.0.0-preview.3.25171.5": {
         "type": "package",
         "compile": {
-          "lib/net9.0/System.Text.Encodings.Web.dll": {
+          "lib/net8.0/System.Text.Encodings.Web.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/net9.0/System.Text.Encodings.Web.dll": {
+          "lib/net8.0/System.Text.Encodings.Web.dll": {
             "related": ".xml"
           }
         },
@@ -1530,10 +1535,6 @@
           "runtimes/browser/lib/net8.0/System.Text.Encodings.Web.dll": {
             "assetType": "runtime",
             "rid": "browser"
-          },
-          "runtimes/win/lib/net9.0/System.Text.Encodings.Web.dll": {
-            "assetType": "runtime",
-            "rid": "win"
           }
         }
       },
@@ -1544,12 +1545,12 @@
           "System.Text.Encodings.Web": "10.0.0-preview.3.25171.5"
         },
         "compile": {
-          "lib/net9.0/System.Text.Json.dll": {
+          "lib/net8.0/System.Text.Json.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/net9.0/System.Text.Json.dll": {
+          "lib/net8.0/System.Text.Json.dll": {
             "related": ".xml"
           }
         },
@@ -1571,7 +1572,7 @@
       },
       "model/1.0.0": {
         "type": "project",
-        "framework": ".NETCoreApp,Version=v9.0",
+        "framework": ".NETCoreApp,Version=v8.0",
         "dependencies": {
           "Avalonia": "11.3.0",
           "Avalonia.Desktop": "11.3.0",
@@ -1597,7 +1598,7 @@
       },
       "persistance/1.0.0": {
         "type": "project",
-        "framework": ".NETCoreApp,Version=v9.0",
+        "framework": ".NETCoreApp,Version=v8.0",
         "dependencies": {
           "Avalonia": "11.3.0",
           "Avalonia.Desktop": "11.3.0",
@@ -4078,7 +4079,7 @@
     }
   },
   "projectFileDependencyGroups": {
-    "net9.0": [
+    "net8.0": [
       "BCrypt.Net-Next >= 4.0.3",
       "Google.Protobuf >= 3.31.0-rc2",
       "Grpc.AspNetCore >= 2.71.0",
@@ -4095,31 +4096,30 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/stefansandru/Documents/trnsport-company/csharpServer/grpcServer/grpcServer.csproj",
+      "projectUniqueName": "/Users/stefansandru/Documents/GitHub/transport-company/csharpServer/grpcServer/grpcServer.csproj",
       "projectName": "grpcServer",
-      "projectPath": "/Users/stefansandru/Documents/trnsport-company/csharpServer/grpcServer/grpcServer.csproj",
+      "projectPath": "/Users/stefansandru/Documents/GitHub/transport-company/csharpServer/grpcServer/grpcServer.csproj",
       "packagesPath": "/Users/stefansandru/.nuget/packages/",
-      "outputPath": "/Users/stefansandru/Documents/trnsport-company/csharpServer/grpcServer/obj/",
+      "outputPath": "/Users/stefansandru/Documents/GitHub/transport-company/csharpServer/grpcServer/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/stefansandru/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
-        "net9.0"
+        "net8.0"
       ],
       "sources": {
-        "/opt/homebrew/Cellar/dotnet/9.0.4/libexec/library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
-        "net9.0": {
-          "targetAlias": "net9.0",
+        "net8.0": {
+          "targetAlias": "net8.0",
           "projectReferences": {
-            "/Users/stefansandru/Documents/trnsport-company/csharpServer/model/model.csproj": {
-              "projectPath": "/Users/stefansandru/Documents/trnsport-company/csharpServer/model/model.csproj"
+            "/Users/stefansandru/Documents/GitHub/transport-company/csharpServer/model/model.csproj": {
+              "projectPath": "/Users/stefansandru/Documents/GitHub/transport-company/csharpServer/model/model.csproj"
             },
-            "/Users/stefansandru/Documents/trnsport-company/csharpServer/persistance/persistance.csproj": {
-              "projectPath": "/Users/stefansandru/Documents/trnsport-company/csharpServer/persistance/persistance.csproj"
+            "/Users/stefansandru/Documents/GitHub/transport-company/csharpServer/persistance/persistance.csproj": {
+              "projectPath": "/Users/stefansandru/Documents/GitHub/transport-company/csharpServer/persistance/persistance.csproj"
             }
           }
         }
@@ -4133,12 +4133,11 @@
         "enableAudit": "true",
         "auditLevel": "low",
         "auditMode": "direct"
-      },
-      "SdkAnalysisLevel": "9.0.100"
+      }
     },
     "frameworks": {
-      "net9.0": {
-        "targetAlias": "net9.0",
+      "net8.0": {
+        "targetAlias": "net8.0",
         "dependencies": {
           "BCrypt.Net-Next": {
             "target": "Package",
@@ -4183,7 +4182,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/opt/homebrew/Cellar/dotnet/9.0.4/libexec/sdk/9.0.105/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.415/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

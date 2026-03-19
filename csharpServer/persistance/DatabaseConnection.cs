@@ -32,10 +32,8 @@ public class DatabaseConnection
                 rawConnectionString = $"{dataSourcePrefix}{dbPath}";
             }
         }
-        _logger.LogInformation($"Using connection string: {rawConnectionString}");
         connectionString = rawConnectionString;
 
-        _logger.LogDebug($"Checking DB file: {rawConnectionString}");
         var dbPathToCheck = rawConnectionString.StartsWith(dataSourcePrefix)
             ? rawConnectionString.Substring(dataSourcePrefix.Length)
             : rawConnectionString;
@@ -45,7 +43,6 @@ public class DatabaseConnection
         }
         else
         {
-            _logger.LogDebug($"Database file found at: {dbPathToCheck}");
         }
     }
 
@@ -56,12 +53,10 @@ public class DatabaseConnection
         {
             connection = new SqliteConnection(connectionString);
             connection.Open();
-            _logger.LogInformation("Successfully connected to the database.");
         }
         catch (SqliteException e)
         {
             _logger.LogError(e, "Error getting connection");
-            Console.WriteLine($"Error getting connection: {e.Message}");
         }
 
         return connection;
@@ -79,7 +74,6 @@ public class DatabaseConnection
         catch (Exception e)
         {
             _logger.LogError(e, "Error with database connection");
-            Console.WriteLine($"Error DB: {e.Message}");
         }
         return instance;
     }

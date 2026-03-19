@@ -1,13 +1,13 @@
-package ro.mpp2024;
+package ro.transportcompany;
 
-public class Office extends Entity<Integer> {
+public class Client extends Entity<Integer> {
     private String name;
 
-    public Office() {
+    public Client() {
         super();
     }
 
-    public Office(Integer id, String name) {
+    public Client(Integer id, String name) {
         super(id);
         this.name = name;
     }
@@ -22,6 +22,9 @@ public class Office extends Entity<Integer> {
 
     @Override
     public String toString() {
-        return "Id=" + getId() + " " + name;
+        return "Client{" +
+                "id=" + getId() +
+                ", name='" + name + '\'' +
+                '}';
     }
 }

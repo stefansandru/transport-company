@@ -1,8 +1,5 @@
 namespace model;
 
-/// <summary>
-/// An employee that can log into the desktop application and reserve seats for clients.
-/// </summary>
 public class Employee : Entity<int>
 {
     public string Username { get; set; }

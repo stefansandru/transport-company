@@ -33,7 +33,6 @@ namespace persistance
         
         public override ReservedSeat? Save(ReservedSeat reservedSeat)
         {
-            _logger.LogInformation("Save ReservedSeat: {ReservedSeat}", reservedSeat);
             const string query = "INSERT INTO ReservedSeats (trip_id, employee_id, seat_number, client_id) VALUES (@trip_id, @employee_id, @seat_number, @client_id)";
             try
             {
@@ -65,7 +64,6 @@ namespace persistance
 
         public override ReservedSeat? Delete(int id)
         {
-            _logger.LogInformation("Delete ReservedSeat with ID: {Id}", id);
             const string query = @"DELETE FROM ReservedSeats WHERE id = @id RETURNING id, seat_number, 
                trip_id, departure_date, departure_time, available_seats, 
                destination_id, destination_name,
@@ -96,7 +94,6 @@ namespace persistance
 
         public override ReservedSeat? Update(ReservedSeat reservedSeat)
         {
-            _logger.LogInformation("Update ReservedSeat: {ReservedSeat}", reservedSeat);
             const string query = "UPDATE ReservedSeats SET trip_id = @trip_id, employee_id = @employee_id, seat_number = @seat_number, client_id = @client_id WHERE id = @id";
             try
             {
@@ -125,7 +122,6 @@ namespace persistance
 
         public List<ReservedSeat> FindByTripDestinationDateTime(string destination, string date, string time)
         {
-            _logger.LogInformation("Find ReservedSeat by trip destination, date and time: {Destination}: {Date}, {Time}", destination, date, time);
             var reservedSeats = new List<ReservedSeat>();
             const string query = @"
         SELECT rs.id, rs.seat_number, 
@@ -186,7 +182,7 @@ namespace persistance
                 connection.Open();
                 using (var reader = command.ExecuteReader())
                 {
-                    return !reader.Read(); // If any row is returned, seats are not available
+                    return !reader.Read();
                 }
             }
         }

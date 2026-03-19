@@ -1,4 +1,4 @@
-package ro.mpp2024;
+package ro.transportcompany;
 
 public class Employee extends Entity<Integer> {
     private String username;

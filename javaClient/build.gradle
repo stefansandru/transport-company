@@ -4,7 +4,7 @@ plugins {
     id 'org.openjfx.javafxplugin' version '0.0.13'
 }
 
-group = 'ro.mpp2024'
+group = 'ro.transportcompany'
 version = '1.0-SNAPSHOT'
 
 repositories {
@@ -33,7 +33,7 @@ dependencies {
 
 jar {
     manifest {
-        attributes 'Main-Class': 'ro.mpp2024.Main'
+        attributes 'Main-Class': 'ro.transportcompany.Main'
     }
     duplicatesStrategy = DuplicatesStrategy.EXCLUDE
     from {
@@ -47,7 +47,7 @@ javafx {
 }
 
 application {
-    mainClass = 'ro.mpp2024.Main'
+    mainClass = 'ro.transportcompany.Main'
     applicationDefaultJvmArgs = [
             '--module-path', '/Users/stefansandru/javafx-sdk-21.0.6/lib',
             '--add-modules', 'javafx.controls,javafx.fxml'

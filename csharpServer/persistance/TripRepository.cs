@@ -14,7 +14,6 @@ namespace persistance
 
         public override Trip? FindById(int id)
         {
-            _logger.LogInformation("Find Trip by ID: {Id}", id);
             const string query = @"SELECT t.id, t.departure_date, t.departure_time, 
                 t.available_seats - IFNULL((SELECT COUNT(*) FROM ReservedSeats rs WHERE rs.trip_id = t.id), 0) AS available_seats, 
                 d.id as destination_id, d.name as destination_name
@@ -45,7 +44,6 @@ namespace persistance
 
         public override IEnumerable<Trip> FindAll()
         {
-            _logger.LogInformation("Find all Trips");
             var trips = new List<Trip>();
             const string query = @"SELECT t.id, t.departure_date, t.departure_time, 
                 t.available_seats - IFNULL((SELECT COUNT(*) FROM ReservedSeats rs WHERE rs.trip_id = t.id), 0) AS available_seats, 
@@ -79,7 +77,6 @@ namespace persistance
 
         public IEnumerable<Trip> FindByDestinationId(int destinationId)
         {
-            _logger.LogInformation("Find Trips by Destination ID: {DestinationId}", destinationId);
             var trips = new List<Trip>();
             const string query = @"SELECT t.id, t.departure_date, t.departure_time, 
                 t.available_seats - IFNULL((SELECT COUNT(*) FROM ReservedSeats rs WHERE rs.trip_id = t.id), 0) AS available_seats, 
@@ -114,7 +111,6 @@ namespace persistance
 
         public IEnumerable<Trip> FindByDepartureDate(DateTime departureDate)
         {
-            _logger.LogInformation("Find Trips by Departure Date: {DepartureDate}", departureDate);
             var trips = new List<Trip>();
             const string query = @"SELECT t.id, t.departure_date, t.departure_time, 
                 t.available_seats - IFNULL((SELECT COUNT(*) FROM ReservedSeats rs WHERE rs.trip_id = t.id), 0) AS available_seats, 
@@ -149,8 +145,6 @@ namespace persistance
 
         public override Trip? Save(Trip trip)
         {
-            _logger.LogInformation("Save Trip: {Trip}", trip);
-
             const string insertQuery = "INSERT INTO Trip (destination_id, departure_date, departure_time, available_seats) VALUES (@destination_id, @departure_date, @departure_time, @available_seats)";
             try
             {
@@ -184,8 +178,6 @@ namespace persistance
 
         public override Trip? Delete(int id)
         {
-            _logger.LogInformation("Delete Trip with ID: {Id}", id);
-
             var tripToDelete = FindById(id);
             if (tripToDelete == null)
             {
@@ -218,8 +210,6 @@ namespace persistance
 
         public override Trip? Update(Trip trip)
         {
-            _logger.LogInformation("Update Trip: {Trip}", trip);
-
             const string query = "UPDATE Trip SET destination_id = @destination_id, departure_date = @departure_date, departure_time = @departure_time, available_seats = @available_seats WHERE id = @id";
             try
             {
@@ -250,8 +240,6 @@ namespace persistance
 
         public IEnumerable<Trip> FindAllByName(string name)
         {
-            _logger.LogInformation("Find all Trips by name: {Name}", name);
-
             var trips = new List<Trip>();
             const string query = @"SELECT t.id, t.departure_date, t.departure_time, 
                 t.available_seats - IFNULL((SELECT COUNT(*) FROM ReservedSeats rs WHERE rs.trip_id = t.id), 0) AS available_seats, 
@@ -288,8 +276,6 @@ namespace persistance
 
         public Trip FindByDestinationAndDateAndTime(string destination, string dateString, string timeString)
         {
-            _logger.LogInformation("Find Trip by destination, date, and time: {Destination}, {Date}, {Time}", destination, dateString, timeString);
-
             const string query = @"
         SELECT t.id, t.departure_date, t.departure_time, t.available_seats - IFNULL((SELECT COUNT(*) FROM ReservedSeats rs WHERE rs.trip_id = t.id), 0) AS available_seats, 
         d.id as destination_id, d.name as destination_name

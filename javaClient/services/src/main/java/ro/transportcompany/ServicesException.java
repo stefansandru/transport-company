@@ -1,4 +1,4 @@
-package ro.mpp2024;
+package ro.transportcompany;
 
 public class ServicesException extends Exception {
 

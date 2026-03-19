@@ -18,8 +18,6 @@ public class ClientRepository : AbstractRepository<int, Client>, IClientReposito
 
     public override Client? FindById(int id)
     {
-        _logger.LogInformation("Find Client by ID: {Id}", id);
-
         const string query = "SELECT * FROM Client WHERE id = @id";
         try
         {
@@ -49,8 +47,6 @@ public class ClientRepository : AbstractRepository<int, Client>, IClientReposito
 
     public Client? FindByUsername(string username)
     {
-        _logger.LogInformation("Find Client by username: {Username}", username);
-
         if (string.IsNullOrEmpty(username))
             throw new ArgumentException("Username must not be null or empty", nameof(username));
 
@@ -83,8 +79,6 @@ public class ClientRepository : AbstractRepository<int, Client>, IClientReposito
 
     public Client FindByName(string name)
     {
-        _logger.LogInformation("Find Client by name: {Name}", name);
-
         if (string.IsNullOrEmpty(name))
             throw new ArgumentException("Name must not be null or empty", nameof(name));
 
@@ -117,8 +111,6 @@ public class ClientRepository : AbstractRepository<int, Client>, IClientReposito
 
     public override IEnumerable<Client> FindAll()
     {
-        _logger.LogInformation("Find all Clients");
-
         var clients = new List<Client>();
         const string query = "SELECT * FROM Client";
 
@@ -150,8 +142,6 @@ public class ClientRepository : AbstractRepository<int, Client>, IClientReposito
 
     public override Client? Save(Client client)
     {
-        _logger.LogInformation("Save Client: {Client}", client);
-
         if (client == null)
             throw new ArgumentNullException(nameof(client));
 
@@ -177,8 +167,6 @@ public class ClientRepository : AbstractRepository<int, Client>, IClientReposito
 
     public override Client? Delete(int id)
     {
-        _logger.LogInformation("Delete Client with ID: {Id}", id);
-
         var clientToDelete = FindById(id);
         if (clientToDelete == null)
         {
@@ -211,8 +199,6 @@ public class ClientRepository : AbstractRepository<int, Client>, IClientReposito
 
     public override Client? Update(Client client)
     {
-        _logger.LogInformation("Update Client: {Client}", client);
-
         if (client == null)
             throw new ArgumentNullException(nameof(client));
 

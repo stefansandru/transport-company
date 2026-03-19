@@ -1,4 +1,4 @@
-package ro.mpp2024.controller;
+package ro.transportcompany.controller;
 
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
@@ -10,8 +10,8 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import ro.mpp2024.*;
-import ro.mpp2024.utils.AlertFactory;
+import ro.transportcompany.*;
+import ro.transportcompany.utils.AlertFactory;
 
 import java.net.URL;
 import java.time.LocalDate;
@@ -24,7 +24,7 @@ public class MainAppController implements Initializable, IObserver {
     private Employee currentEmployee;
     private Trip tripToReserve;
 
-    private static final Logger logger = LogManager.getLogger(ro.mpp2024.controller.MainAppController.class);
+    private static final Logger logger = LogManager.getLogger(ro.transportcompany.controller.MainAppController.class);
 
     @FXML
     private TableView<Trip> tripsTable;
@@ -137,7 +137,6 @@ public class MainAppController implements Initializable, IObserver {
 
     private void loadSeats() {
         try {
-            logger.debug("Searching for seats...");
             String destination = searchDestinationField.getText();
             if (destination.isEmpty()) {
                 AlertFactory.getInstance().createAlert("Error", "Destination cannot be empty!").showAndWait();
@@ -156,13 +155,11 @@ public class MainAppController implements Initializable, IObserver {
                 return;
             }
             tripToReserve = newTrip;
-            logger.debug("Trip found: {}", tripToReserve);
             List<Seat> seats = server.searchTripSeats(
                     tripToReserve.getDestination().getName(),
                     tripToReserve.getDepartureDate(),
                     tripToReserve.getDepartureTime()
             );
-            logger.debug("Seats found: {}", seats);
             seatsTable.setItems(FXCollections.observableArrayList(seats));
         } catch (ServicesException e) {
             logger.error("Error loading seats: {}", e.getMessage());

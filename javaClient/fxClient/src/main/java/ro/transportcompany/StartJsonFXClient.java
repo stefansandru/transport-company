@@ -1,4 +1,4 @@
-package ro.mpp2024;
+package ro.transportcompany;
 
 import javafx.scene.Parent;
 import org.apache.logging.log4j.LogManager;
@@ -8,11 +8,11 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import ro.mpp2024.controller.LoginController;
-import ro.mpp2024.controller.MainAppController;
-import ro.mpp2024.proto.LoginReply;
-import ro.mpp2024.proto.TransportCompanyGrpc;
-import ro.mpp2024.proto.LoginRequest;
+import ro.transportcompany.controller.LoginController;
+import ro.transportcompany.controller.MainAppController;
+import ro.transportcompany.proto.LoginReply;
+import ro.transportcompany.proto.TransportCompanyGrpc;
+import ro.transportcompany.proto.LoginRequest;
 
 import io.grpc.ManagedChannel;
 
@@ -33,7 +33,6 @@ public class StartJsonFXClient extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        logger.debug("In start");
         Properties clientProps = new Properties();
 
         try {
@@ -41,7 +40,6 @@ public class StartJsonFXClient extends Application {
             logger.info("Client properties set {} ",clientProps);
         } catch (IOException e) {
             logger.error("Cannot find client.properties {}", String.valueOf(e));
-            logger.debug("Looking for client.properties in folder {}",(new File(".")).getAbsolutePath());
             return;
         }
         String serverIP = clientProps.getProperty("server.host", defaultServer);
@@ -51,14 +49,13 @@ public class StartJsonFXClient extends Application {
             serverPort = Integer.parseInt(clientProps.getProperty("server.port"));
         } catch (NumberFormatException ex) {
             logger.error("Wrong port number {}", ex.getMessage());
-            logger.debug("Using default port: {}", defaultServerPort);
         }
         logger.info("Using server IP {}", serverIP);
         logger.info("Using server port {}", serverPort);
 
         ManagedChannel channel = ManagedChannelBuilder
                 .forAddress(serverIP, serverPort)
-                .usePlaintext() // pentru localhost, fără TLS
+                .usePlaintext()
                 .build();
         TransportCompanyGrpc.TransportCompanyBlockingStub grpcStub =
                 TransportCompanyGrpc.newBlockingStub(channel);

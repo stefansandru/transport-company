@@ -1,4 +1,4 @@
-package ro.mpp2024;
+package ro.transportcompany;
 
 public class ReservedSeat extends Entity<Integer> {
     private Trip trip;

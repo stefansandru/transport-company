@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "L8Jeh7Sao2Q=",
+  "dgSpecHash": "gagYNM0UUuk=",
   "success": true,
-  "projectFilePath": "/Users/stefansandru/Documents/trnsport-company/csharpServer/model/model.csproj",
+  "projectFilePath": "/Users/stefansandru/Documents/GitHub/transport-company/csharpServer/model/model.csproj",
   "expectedPackageFiles": [
     "/Users/stefansandru/.nuget/packages/avalonia/11.3.0/avalonia.11.3.0.nupkg.sha512",
     "/Users/stefansandru/.nuget/packages/avalonia.angle.windows.natives/2.1.22045.20230930/avalonia.angle.windows.natives.2.1.22045.20230930.nupkg.sha512",

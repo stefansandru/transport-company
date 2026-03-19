@@ -1,4 +1,4 @@
-package ro.mpp2024;
+package ro.transportcompany;
 
 /**
  * Base class for all domain entities that require an ID

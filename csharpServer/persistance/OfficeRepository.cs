@@ -14,8 +14,6 @@ public class OfficeRepository : AbstractRepository<int, Office>, IOfficeReposito
 
     public override Office? FindById(int id)
     {
-        logger.LogInformation("Find Office by ID: {Id}", id);
-
         const string query = "SELECT * FROM Office WHERE id = @id";
         try
         {
@@ -45,8 +43,6 @@ public class OfficeRepository : AbstractRepository<int, Office>, IOfficeReposito
 
     public override IEnumerable<Office> FindAll()
     {
-        logger.LogInformation("Find all Offices");
-
         var offices = new List<Office>();
         const string query = "SELECT * FROM Office";
 
@@ -78,8 +74,6 @@ public class OfficeRepository : AbstractRepository<int, Office>, IOfficeReposito
 
     public override Office? Save(Office office)
     {
-        logger.LogInformation("Save Office: {Office}", office);
-
         if (office == null)
             throw new ArgumentNullException(nameof(office));
 
@@ -114,8 +108,6 @@ public class OfficeRepository : AbstractRepository<int, Office>, IOfficeReposito
 
     public override Office? Delete(int id)
     {
-        logger.LogInformation("Delete Office with ID: {Id}", id);
-
         var officeToDelete = FindById(id);
         if (officeToDelete == null)
         {
@@ -149,8 +141,6 @@ public class OfficeRepository : AbstractRepository<int, Office>, IOfficeReposito
 
     public override Office? Update(Office office)
     {
-        logger.LogInformation("Update Office: {Office}", office);
-
         if (office == null)
             throw new ArgumentNullException(nameof(office));
 
@@ -182,8 +172,6 @@ public class OfficeRepository : AbstractRepository<int, Office>, IOfficeReposito
 
     public Office? FindByName(string name)
     {
-        logger.LogInformation("Find Office by name: {Name}", name);
-
         if (string.IsNullOrEmpty(name))
             throw new ArgumentException("Name must not be null or empty", nameof(name));
 

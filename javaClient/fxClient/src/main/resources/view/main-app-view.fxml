@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="ro.mpp2024.controller.MainAppController" spacing="10" alignment="CENTER">
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="ro.transportcompany.controller.MainAppController" spacing="10" alignment="CENTER">
     <TableView fx:id="tripsTable">
         <columns>
             <TableColumn fx:id="destinationColumn" text="Destination"/>
