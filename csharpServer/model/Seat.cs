@@ -1,5 +1,8 @@
 namespace model;
 
+/// <summary>
+/// Simple value object representing a seat number inside a coach (1-18).
+/// </summary>
 public class Seat
 {
     public int SeatNumber { get; }

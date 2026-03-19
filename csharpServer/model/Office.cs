@@ -1,5 +1,8 @@
 namespace model;
 
+/// <summary>
+/// Represents a physical agency / office where employees work.
+/// </summary>
 public class Office : Entity<int>
 {
     public string Name { get; set; }

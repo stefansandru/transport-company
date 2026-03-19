@@ -5,6 +5,12 @@ using model;
 
 namespace persistance;
 
+/// <summary>
+/// Base class used by all ADO.NET repository implementations. It wires in the database
+/// connection helper and defines the usual CRUD methods left abstract for subclasses.
+/// 
+/// The generic parameters are kept in sync with <see cref="IRepository{TId,TEntity}"/>.
+/// </summary>
 public abstract class AbstractRepository<ID, E> : IRepository<ID, E> where ID : IComparable<ID> where E : Entity<ID>
 {
     protected DatabaseConnection jdbc;

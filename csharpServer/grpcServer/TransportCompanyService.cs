@@ -7,6 +7,10 @@ using Microsoft.Extensions.Logging;
 
 namespace grpcServer;
 
+/// <summary>
+/// gRPC service that glues the desktop client to the database. Handles login, trip search
+/// and seat reservation logic while broadcasting updates to all connected employees.
+/// </summary>
 public class TransportCompanyService : TransportCompany.GrpcServer.TransportCompany.TransportCompanyBase
 {
     private readonly IClientRepository _clientRepository;
@@ -19,6 +23,14 @@ public class TransportCompanyService : TransportCompany.GrpcServer.TransportComp
 
     private static readonly ConcurrentDictionary<int, IServerStreamWriter<NotifySeatsReservedReply>> EmployeeStreams = new();
 
+    /// <summary>
+    /// Creates the service instance and wires in all required dependencies.
+    /// </summary>
+    /// <param name="clientRepository">Data-access layer for <see cref="Client"/> records.</param>
+    /// <param name="employeeRepository">Data-access layer for <see cref="Employee"/> records.</param>
+    /// <param name="tripRepository">Data-access layer for <see cref="Trip"/> records.</param>
+    /// <param name="reservedSeatRepository">Data-access layer for <see cref="ReservedSeat"/> records.</param>
+    /// <param name="logger">Structured logger injected by ASP-NET host.</param>
     public TransportCompanyService(
         IClientRepository clientRepository,
         IEmployeeRepository employeeRepository, 
@@ -33,6 +45,18 @@ public class TransportCompanyService : TransportCompany.GrpcServer.TransportComp
         _logger = logger;
     }  
 
+    /// <summary>
+    /// Authenticates an employee using the provided credentials.
+    /// </summary>
+    /// <remarks>
+    /// Magic return codes used by the legacy Java client:
+    /// <list type="bullet">
+    ///   <item><description><c>-1</c>: employee not found</description></item>
+    ///   <item><description><c>-2</c>: wrong password</description></item>
+    ///   <item><description><c>-3</c>: already logged in from another machine</description></item>
+    /// </list>
+    /// </remarks>
+    /// <returns>A populated <see cref="LoginReply"/>.</returns>
     public override Task<LoginReply> Login(LoginRequest request, ServerCallContext context)
     {
         var employee = _employeeRepository.FindByUsername(request.Username);
@@ -63,6 +87,9 @@ public class TransportCompanyService : TransportCompany.GrpcServer.TransportComp
         });
     }
 
+    /// <summary>
+    /// Removes the employee from the in-memory session pool and shuts down its notification stream.
+    /// </summary>
     public override Task<LogoutReply> Logout(LogoutRequest request, ServerCallContext context)
     {
         LoggedInEmployees.TryRemove(request.EmployeeId, out _);
@@ -74,6 +101,9 @@ public class TransportCompanyService : TransportCompany.GrpcServer.TransportComp
         });
     }
 
+    /// <summary>
+    /// Retrieves a lightweight projection of every trip in the database.
+    /// </summary>
     public override Task<TripsReply> GetAllTrips(AllTripsRequest request, ServerCallContext context)
     {
         var trips = _tripRepository.FindAll().ToList();
@@ -93,6 +123,9 @@ public class TransportCompanyService : TransportCompany.GrpcServer.TransportComp
         return Task.FromResult(reply);
     }
 
+    /// <summary>
+    /// Gets details for a single trip identified by destination, date and time.
+    /// </summary>
     public override Task<GetTripReply> GetTrip(GetTripRequest request, ServerCallContext context)
     {
         if (!DateOnly.TryParse(request.Date, out var date))
@@ -116,6 +149,9 @@ public class TransportCompanyService : TransportCompany.GrpcServer.TransportComp
         return Task.FromResult(new GetTripReply { Trip = tripDto });
     }
 
+    /// <summary>
+    /// Returns the full seat map (18 seats) for the given trip so the UI can mark them as occupied.
+    /// </summary>
     public override Task<SearchTripSeatsReply> SearchTripSeats(SearchTripSeatsRequest request, ServerCallContext context)
     {
         if (!DateOnly.TryParse(request.Date, out var date))
@@ -144,6 +180,9 @@ public class TransportCompanyService : TransportCompany.GrpcServer.TransportComp
         return Task.FromResult(reply);
     }
 
+    /// <summary>
+    /// Persists a batch of seat reservations and notifies all other online employees via server-streaming.
+    /// </summary>
     public override async Task<ReserveSeatsReply> ReserveSeats(ReserveSeatsRequest request, ServerCallContext context)
     {
         var client = _clientRepository.FindByName(request.ClientName);
@@ -209,6 +248,9 @@ public class TransportCompanyService : TransportCompany.GrpcServer.TransportComp
         return reply;
     }
 
+    /// <summary>
+    /// Long-lived streaming RPC – every employee keeps this open to receive <see cref="NotifySeatsReservedReply"/> events.
+    /// </summary>
     public override async Task NotifySeatsReserved(NotifySeatsReservedRequest request, IServerStreamWriter<NotifySeatsReservedReply> responseStream, ServerCallContext context)
     {
         EmployeeStreams[request.EmployeeId] = responseStream; 
