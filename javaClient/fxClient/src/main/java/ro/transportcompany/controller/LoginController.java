@@ -34,17 +34,14 @@ public class LoginController {
     private Parent root;
 
     public LoginController(IServices server) {
-        logger.trace("Entering LoginController constructor");
         this.server = server;
     }
 
     public void setServer(IServices server) {
-        logger.trace("Entering setServer");
         this.server = server;
     }
 
     public void setMainAppController(MainAppController mainAppController) {
-        logger.trace("Entering setMainAppController");
         this.mainAppController = mainAppController;
     }
 
@@ -54,22 +51,18 @@ public class LoginController {
 
     @FXML
     private void handleLogin(ActionEvent event) {
-        logger.trace("Entering handleLogin");
         String username = usernameField.getText();
         String password = passwordField.getText();
 
         try {
             currentEmployee = server.login(username, password, mainAppController);
-            logger.info("User {} logged in successfully", username);
             mainAppController.setCurrentEmployee(currentEmployee);
-            logger.info("Current employee set to {}", currentEmployee.getUsername());
 
             mainAppController.loadTrips();
 
             Stage mainAppStage = new Stage();
             mainAppStage.setTitle("Main App - " + currentEmployee.getUsername());
             mainAppStage.setScene(new Scene(root, 700, 800));
-            logger.info("Main app scene set");
             mainAppStage.show();
 
             ((Node) (event.getSource())).getScene().getWindow().hide();

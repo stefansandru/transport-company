@@ -37,7 +37,6 @@ public class StartJsonFXClient extends Application {
 
         try {
             clientProps.load(StartJsonFXClient.class.getResourceAsStream("/client.properties"));
-            logger.info("Client properties set {} ",clientProps);
         } catch (IOException e) {
             logger.error("Cannot find client.properties {}", String.valueOf(e));
             return;
@@ -50,8 +49,6 @@ public class StartJsonFXClient extends Application {
         } catch (NumberFormatException ex) {
             logger.error("Wrong port number {}", ex.getMessage());
         }
-        logger.info("Using server IP {}", serverIP);
-        logger.info("Using server port {}", serverPort);
 
         ManagedChannel channel = ManagedChannelBuilder
                 .forAddress(serverIP, serverPort)
@@ -62,15 +59,11 @@ public class StartJsonFXClient extends Application {
 
         IServices server = new GrpcServicesProxy(grpcStub);
 
-        logger.info("Login view start loading");
-
         FXMLLoader loginLoader = new FXMLLoader(getClass().getClassLoader().getResource("view/login-view.fxml"));
         loginLoader.setControllerFactory(param -> new LoginController(server));
         Parent root = loginLoader.load();
         LoginController loginController = loginLoader.getController();
         loginController.setServer(server);
-
-        logger.info("Login view loaded");
 
         FXMLLoader mainAppLoader = new FXMLLoader(getClass().getClassLoader().getResource("view/main-app-view.fxml"));
         mainAppLoader.setControllerFactory(param -> new MainAppController());

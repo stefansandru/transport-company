@@ -180,7 +180,7 @@ public class MainAppController implements Initializable, IObserver {
             loadTrips();
             loadSeats();
         } catch (ServicesException e) {
-            logger.error("Error reserving seats cibidusoewoiiub");
+            logger.error("Error reserving seats: {}", e.getMessage());
             AlertFactory.getInstance().createAlert("Error", e.getMessage()).showAndWait();
         }
     }
